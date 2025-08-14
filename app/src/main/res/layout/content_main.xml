@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.screechingchimp.pixelcanvas.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <Space
+        android:id="@+id/toolBarSpace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@+id/canvasFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/frameBox"
+        android:layout_below="@+id/toolBarSpace"
+        android:layout_alignEnd="@+id/toolBox"
+        android:layout_alignRight="@+id/toolBox"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="5dp"
+        android:measureAllChildren="true">
+
+        <FrameLayout
+            android:id="@+id/canvasHolder"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:background="#ffffff">
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/animBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBarSpace"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/toolBGColor"
+        android:elevation="1dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#dddddd"
+            android:layoutMode="clipBounds"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/previewToolHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/playButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:background="#00ffffff"
+                android:scaleType="fitXY"
+                android:singleLine="false"
+                android:src="@drawable/ic_action_playback_play_b"
+                android:tint="@color/toolColor" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/frameBox"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/toolBox"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <Space
+            android:id="@+id/frameBoxSpaceA"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <ImageButton
+            android:id="@+id/quickDropper"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00ffffff"
+            android:scaleType="fitCenter"
+            android:singleLine="false"
+            android:src="@drawable/eyedropper"
+            android:tint="@color/toolColor" />
+
+        <Space
+            android:id="@+id/frameBoxSpaceB"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <HorizontalScrollView
+            android:id="@+id/frameScrollView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/toolBGColor"
+            android:fillViewport="true"
+            android:measureAllChildren="true"
+            android:padding="3dp">
+
+            <com.screechingchimp.pixelcanvas.CustomListLinear
+                android:id="@+id/framesList"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="fill"
+                android:orientation="horizontal"
+                android:scrollIndicators="none">
+
+            </com.screechingchimp.pixelcanvas.CustomListLinear>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/FrameToolHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/testButton"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/toolbtnbg"
+                android:text="+"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <Space
+            android:id="@+id/frameBoxSpaceC"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/toolBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBarSpace"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:baselineAligned="false"
+        android:elevation="1dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/paletteFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/toolBGColor"
+            android:padding="2dp"
+            android:visibility="gone">
+
+            <com.screechingchimp.pixelcanvas.PaletteView
+                android:id="@+id/palette"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/colorspectrum"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/ditherFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:visibility="gone">
+
+            <com.screechingchimp.pixelcanvas.DitherView
+                android:id="@+id/dither"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:background="@color/toolBGColor"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ditherspectrum"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/brushFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <com.screechingchimp.pixelcanvas.BrushView
+                android:id="@+id/brush"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp"
+                android:background="@color/toolBGColor"
+                android:padding="2dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/brushspectrum"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/brushSizeDisp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp"
+                android:editable="false"
+                android:gravity="center_vertical|right"
+                android:inputType="none"
+                android:text="1"
+                android:textAlignment="gravity" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/swatchHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/toolBGColor"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/colorSwatchAFrame"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="2dp">
+
+                <ImageButton
+                    android:id="@+id/colorSwatchA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FF000000" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/ditherSwatchFrame"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="visible">
+
+                <ImageButton
+                    android:id="@+id/ditherSwatch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="#00000000"
+                    android:scaleType="matrix"
+                    android:src="#FF000000" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/sizeSwatchFrame"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="visible">
+
+                <ImageButton
+                    android:id="@+id/sizeSwatch"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circle_filled"
+                    android:scaleType="fitXY"
+                    android:singleLine="false" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/toolScrollerView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/toolHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/secondToolBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/secondBrush"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="right"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <ImageButton
+                            android:id="@+id/pencilButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:background="@drawable/toolbtnbg"
+                            android:padding="6dp"
+                            android:scaleType="fitXY"
+                            android:singleLine="false"
+                            android:src="@drawable/pencil"
+                            android:tint="@color/toolColor" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/secondLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="3dp"
+                        android:gravity="right"
+                        android:orientation="horizontal"></LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/secondEraser"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:gravity="right"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:id="@+id/secondSquare"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/filledSquareButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:background="@drawable/toolbtnbg"
+                            android:padding="6dp"
+                            android:scaleType="fitXY"
+                            android:singleLine="false"
+                            android:src="@drawable/square_filled"
+                            android:tint="@color/toolColor" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/secondCircle"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/filledCircleButton"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:background="@drawable/toolbtnbg"
+                            android:padding="6dp"
+                            android:scaleType="fitXY"
+                            android:singleLine="false"
+                            android:src="@drawable/circle_filled"
+                            android:tint="@color/toolColor" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/firstToolBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/brushButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/brush"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/eraserButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/eraser"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/lineButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/line"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/squareButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/square"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/circleButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/circle"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/fillButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/paintbucket"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/dropperButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/eyedropper"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/magnifyButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/magnify"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/selectButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/marquee"
+                        android:tint="@color/toolColor" />
+
+                    <ImageButton
+                        android:id="@+id/moveButton"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/toolbtnbg"
+                        android:padding="6dp"
+                        android:scaleType="fitXY"
+                        android:singleLine="false"
+                        android:src="@drawable/move"
+                        android:tint="@color/toolColor" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

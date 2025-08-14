@@ -1,0 +1,61 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="screechingchimp.pixelcanvas.MainActivity">
+    <item
+        android:id="@+id/action_new_image"
+        android:orderInCategory="100"
+        android:title="@string/new_image"
+        android:icon="@drawable/ic_action_tablet_b"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_export_gif"
+        android:orderInCategory="125"
+        android:title="@string/export_gif"
+        android:icon="@drawable/ic_action_export_b"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_import_gif"
+        android:orderInCategory="150"
+        android:title="@string/import_gif"
+        android:icon="@drawable/ic_action_import_b"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_undo"
+        android:title="@string/undo"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_action_goleft"
+        app:showAsAction="always"
+        ></item>
+    <item
+        android:id="@+id/action_noundos"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_action_goleft_hollow"
+        app:showAsAction="always"
+        ></item>
+    <item
+        android:id="@+id/action_redo"
+        android:title="@string/redo"
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_action_goright"
+        app:showAsAction="always"
+        ></item>
+    <item
+        android:id="@+id/action_noredos"
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_action_goright_hollow"
+        app:showAsAction="always"
+        ></item>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="400"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_action_settings_b"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="400"
+        android:title="@string/about"
+        android:icon="@drawable/ic_action_bulb_b"
+        app:showAsAction="never" />
+</menu>

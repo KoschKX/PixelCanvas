@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">PixelCanvas</string>
+
+    <string name="about">About</string>
+    <string name="version">Version 1.17</string>
+
+    <string name="new_image">New Image</string>
+    <string name="frame_options">Frame Options</string>
+
+    <string name="export_gif">Export GIF</string>
+    <string name="import_gif">Import GIF</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+
+    <string name="settings">Settings</string>
+    <string name="send_email">Send Email</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+
+    <string name="animation">Animation: </string>
+    <string name="pause_on_draw">Pause on draw</string>
+
+    <string name="not_gif">File is not a gif!</string>
+
+    <string name="new_image_name_required">A file name is required!</string>
+    <string name="new_image_dimensions_required">Image dimensions are required!</string>
+
+    <string name="remove_frame">Are you sure you want to remove this frame? This cannot be undone!</string>
+
+</resources>
